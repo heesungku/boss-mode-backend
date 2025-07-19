@@ -6,12 +6,13 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS 설정 - Boss Mode 앱(localhost:9999)에서 접근 허용
+// CORS 설정 - Boss Mode 앱에서 접근 허용
 app.use(cors({
   origin: [
-    'http://localhost:9999',  // Boss Mode 앱 주소
+    'http://localhost:9999',  // 로컬 Boss Mode 앱 주소
     'http://127.0.0.1:9999',  // 대체 로컬 주소
     'http://localhost:3000',  // 백엔드 자체 테스트용
+    'https://web-production-efae0.up.railway.app',  // Railway 자체 도메인
   ],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
